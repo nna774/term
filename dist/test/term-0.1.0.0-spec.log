@@ -1,0 +1,22 @@
+Test suite spec: RUNNING...
+
+Term
+  toInt
+    - toInt SSSO
+    - toInt (Val 'a')
+    - id x == fromJust . toInt . intToTerm x in 0 <= x <= 10000
+    - result of newFreeValT not in containFreeValsT
+    - prove (Not f) == not (prove f)
+    - applyToBindT (newFreeValT x) t == t
+    - applyToBindT 'a' (Plus O O) (Val 'a') == (Plus O O)
+    - applyToBindT 'a' (Plus O O) (Val 'b') == (Val 'b')
+    - not $ hasFreeVal (Plus O (S O))
+    - prove Equal (S O) (Plus O (S O))
+    - prove (O <=. (S O)) == True
+    - prove ((S O) <=. (S O)) == True
+    - prove ((S (S O)) <=. (S O)) /= True
+
+Finished in 0.0114 seconds
+13 examples, 0 failures
+Test suite spec: PASS
+Test suite logged to: dist/test/term-0.1.0.0-spec.log
